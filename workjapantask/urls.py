@@ -21,6 +21,6 @@ urlpatterns = [
     url(r'^unique/(\w+)', view.unique),
     url(r'^filter$', view.filter),
     url(r'^create$', view.create),
-    url(r'^update$', view.update),
-    url(r'^delete$', view.delete),
+    url(r'^update/(\w+)$', view.update),
+    url(r'^delete/(\w+)$', view.delete),
 ]

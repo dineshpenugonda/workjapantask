@@ -43,7 +43,7 @@ class Company(models.Model):
             **params
         )
         new_company.save()
-        return new_company
+        return new_company.to_dict()
 
     @classmethod
     def _update(cls, company_name, **params):
@@ -54,7 +54,7 @@ class Company(models.Model):
             **params
         )
         new_company.save()
-        return new_company
+        return new_company.to_dict()
 
     @classmethod
     def _delete(cls, company_name):
@@ -65,10 +65,10 @@ class Company(models.Model):
         return True
 
     @classmethod
-    def _unique(cls, attr_name, count_ = 1, _condition_type = "gt"):
+    def _unique(cls, attr_name, count = 1, condition_type = "gt"):
         res = cls.objects.values(attr_name)\
             .annotate( **{ "{}_count".format(attr_name) : Count(attr_name) })\
-            .filter(**{"{}_count{}".format(attr_name, "" if _condition_type == "eq" else "__"+_condition_type) : int(count_) }) 
+            .filter(**{"{}_count{}".format(attr_name, "" if condition_type == "eq" else "__"+condition_type) : int(count) }) 
         l = tuple(i for i in res)
         return {"data" : l}
 
