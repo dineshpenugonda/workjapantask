@@ -117,12 +117,7 @@ Response code - 200
 Response Type - Json
 ```
 {
-    "city": "Chennai",
-    "state": "TN",
-    "postal_code": "533313",
-    "company_name": "Test Company",
-    "locality": "Anna nagar",
-    "building_number": "332"
+    "success" : "Company address deleted successfully"
 }
 ```
 **Response body if any error**
